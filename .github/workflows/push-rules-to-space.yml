@@ -45,9 +45,9 @@ jobs:
     - name: Run the rule space updater
       run: python .github/scripts/toml-spacing.py
 
-    # - name: Test rules before importing to kibana to Kibana
-    #   run: |
-    #     python -m detection_rules test
+    - name: Test rules before importing to kibana to Kibana
+      run: |
+        python -m detection_rules test
         
     - name: Import Rules to Kibana
       run: |
