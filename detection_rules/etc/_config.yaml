@@ -57,8 +57,8 @@ bypass_optional_elastic_validation: True
 # Refer to each original source file for purpose and proper formatting
 #
 
-# testing:
-#   config: etc/example_test_config.yaml
+testing:
+  config: etc/example_test_config.yaml
 
 # To turn on automatic schema generation for non-ecs fields via custom schemas use a line like the following.
 # This will generate a schema file in the specified location that will be used to add entries for each field

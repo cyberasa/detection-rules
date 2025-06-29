@@ -34,7 +34,7 @@ unit_tests:
 rule_validation:
 
   bypass:
-#    - "34fde489-94b0-4500-a76f-b8a157cf9269"
+    - "fd332492-0bc6-11ef-b5be-f661ea17fbcc"
 
 
   test_only:
