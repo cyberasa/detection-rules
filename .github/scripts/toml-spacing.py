@@ -27,36 +27,36 @@ for rule_file in rules_path.rglob("*.toml"):
             updated = True
 
         # --- Modify 'machine_learning_job_id' field ---
-        # if 'machine_learning_job_id' in rule:
-        #     ml_ids = rule['machine_learning_job_id']
-        #     if isinstance(ml_ids, list):
-        #         rule['machine_learning_job_id'] = [
-        #             i if i.startswith("tmp_") else f"tmp_{i}" for i in ml_ids
-        #         ]
-        #     elif isinstance(ml_ids, str):
-        #         if not ml_ids.startswith("tmp_"):
-        #             rule['machine_learning_job_id'] = f"tmp_{ml_ids}"
-        #     updated = True
+        if 'machine_learning_job_id' in rule:
+            ml_ids = rule['machine_learning_job_id']
+            if isinstance(ml_ids, list):
+                rule['machine_learning_job_id'] = [
+                    i if i.startswith("tmp_") else f"tmp_{i}" for i in ml_ids
+                ]
+            elif isinstance(ml_ids, str):
+                if not ml_ids.startswith("tmp_"):
+                    rule['machine_learning_job_id'] = f"tmp_{ml_ids}"
+            updated = True
 
         # # --- Modify 'query' field if language is 'esql' ---
-        # if rule.get('language') == 'esql' and 'query' in rule and isinstance(rule['query'], str):
-        #     original_query = rule['query']
+        if rule.get('language') == 'esql' and 'query' in rule and isinstance(rule['query'], str):
+            original_query = rule['query']
 
-        #     def replace_from_clause(match):
-        #         from_clause = match.group(1)
-        #         indices = [i.strip() for i in from_clause.split(',')]
-        #         modified = [i.replace('*', '*tmp*') for i in indices]
-        #         return f"FROM {', '.join(modified)}"
+            def replace_from_clause(match):
+                from_clause = match.group(1)
+                indices = [i.strip() for i in from_clause.split(',')]
+                modified = [i.replace('*', '*tmp*') for i in indices]
+                return f"FROM {', '.join(modified)}"
 
-        #     updated_query = re.sub(
-        #         r'(?i)FROM\s+([^\n]+)',
-        #         replace_from_clause,
-        #         original_query,
-        #         count=1
-        #     )
+            updated_query = re.sub(
+                r'(?i)FROM\s+([^\n]+)',
+                replace_from_clause,
+                original_query,
+                count=1
+            )
 
-        #     if updated_query != original_query:
-        #         updated = True
+            if updated_query != original_query:
+                updated = True
 
         # --- Save file if modified ---
         if updated:
