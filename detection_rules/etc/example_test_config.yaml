@@ -33,9 +33,9 @@
 # both variables require a list of rule_ids
 rule_validation:
 
-  bypass:
-    - "*"
+  # bypass:
+  #   - "*"
 
 
-#  test_only:
-#    - "34fde489-94b0-4500-a76f-b8a157cf9269"
+ test_only:
+   - "34fde489-94b0-4500-a76f-b8a157cf9269"
