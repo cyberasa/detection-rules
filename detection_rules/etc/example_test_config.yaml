@@ -34,7 +34,7 @@
 rule_validation:
 
   bypass:
-    - "fd332492-0bc6-11ef-b5be-f661ea17fbcc"
+    - "*"
 
 
 #  test_only:
