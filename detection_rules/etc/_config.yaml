@@ -8,7 +8,12 @@ files:
   packages: packages.yaml
   stack_schema_map: stack-schema-map.yaml
   version_lock: version.lock.json
-normalize_kql_keywords: False
+
+bypass_version_lock: True
+normalize_kql_keywords: True
+auto_gen_schema_file: "etc/schemas/auto_gen.json"
+bypass_optional_elastic_validation: True
+
 # Set the versioning strategy.
 # 1. Set to False to use version.lock.json file
 # 2. Set to True to either:
