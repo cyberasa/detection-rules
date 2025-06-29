@@ -7,11 +7,11 @@
 #   pattern:*rule*
 #   the patterns are case sensitive
 
-unit_tests:
+#unit_tests:
   # define tests to explicitly bypass, with all others being run
   #
   # to run all tests, set bypass to empty or leave this file commented out
-  bypass:
+#  bypass:
 #  - tests.test_all_rules.TestValidRules.test_schema_and_dupes
 #  - tests.test_packages.TestRegistryPackage.test_registry_package_config
 #  - tests.test_all_rules.TestRuleMetadata.test_event_dataset
@@ -23,7 +23,7 @@ unit_tests:
   # define tests to explicitly run, with all others being bypassed
   #
   # to bypass all tests, set test_only to empty
-  test_only:
+#  test_only:
 #  - tests.test_all_rules.TestRuleMetadata.test_event_dataset
 #  - pattern:*rule*
 
@@ -37,5 +37,5 @@ rule_validation:
     - "fd332492-0bc6-11ef-b5be-f661ea17fbcc"
 
 
-  test_only:
+#  test_only:
 #    - "34fde489-94b0-4500-a76f-b8a157cf9269"
