@@ -21,9 +21,9 @@ for rule_file in rules_path.rglob("*.toml"):
         if 'index' in rule:
             index = rule['index']
             if isinstance(index, list):
-                rule['index'] = [i.replace('*', '*tmp*') for i in index]
+                rule['index'] = [i.replace('*', '*demo*') for i in index]
             elif isinstance(index, str):
-                rule['index'] = index.replace('*', '*tmp*')
+                rule['index'] = index.replace('*', '*demo*')
             updated = True
 
         # --- Modify 'machine_learning_job_id' field ---
@@ -31,11 +31,11 @@ for rule_file in rules_path.rglob("*.toml"):
             ml_ids = rule['machine_learning_job_id']
             if isinstance(ml_ids, list):
                 rule['machine_learning_job_id'] = [
-                    i if i.startswith("tmp_") else f"tmp_{i}" for i in ml_ids
+                    i if i.startswith("demo_") else f"demo_{i}" for i in ml_ids
                 ]
             elif isinstance(ml_ids, str):
-                if not ml_ids.startswith("tmp_"):
-                    rule['machine_learning_job_id'] = f"tmp_{ml_ids}"
+                if not ml_ids.startswith("demo_"):
+                    rule['machine_learning_job_id'] = f"demo_{ml_ids}"
             updated = True
 
         # # --- Modify 'query' field if language is 'esql' ---
@@ -45,7 +45,7 @@ for rule_file in rules_path.rglob("*.toml"):
             def replace_from_clause(match):
                 from_clause = match.group(1)
                 indices = [i.strip() for i in from_clause.split(',')]
-                modified = [i.replace('*', '*tmp*') for i in indices]
+                modified = [i.replace('*', '*demo*') for i in indices]
                 return f"FROM {', '.join(modified)}"
 
             updated_query = re.sub(
